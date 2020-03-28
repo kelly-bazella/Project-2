@@ -4,7 +4,6 @@
   "description": "Univeristy of Minnesota Coding Bootcamp Project 2",
   "main": "server.js",
   "scripts": {
-
     "test": "echo \"Error: no test specified\" && exit 0",
     "lint": "./node_modules/.bin/eslint \"./**/*.js\"",
     "start": "node server.js",

@@ -9,10 +9,11 @@
   },
 
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "quiz_db",
-    "host": "127.0.0.1",
+    "username": "fwv5d9hsdm26xo0z",
+    "password": "goe20srv6pgligr0",
+    "port": 3306,
+    "database": "kmm45v6u989ehkrb",
+    "host": "a5s42n4idx9husyc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "operatorsAliases": false
   }
