@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 center-aligned">
+      <h2>Take a Quiz</h2>
+    </div>
+  </div>
+   {{#each quiz}}
+  <div class="divider"></div>
+  <div class="row">
+    <div class="col s9">
+      <div class="section">
+        <h5>{{this.quizname}}</h5>
+        <p>{{this.creator}}</p>
+      </div>
+    </div>
+    <div class="col s3">
+      <a href="#" class="waves-effect waves-light btn-large take-quiz" id="{{this.id}}">Take Quiz</a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  {{/each}}
+</div>
