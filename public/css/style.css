@@ -1,0 +1,23 @@
+.nav-style {
+    background-color: lightblue;
+    padding: 0px 20px;
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  .page-footer {
+    background-color: lightslategray;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .take-quiz {
+    margin-top: 50px;
+  }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <title>Quiz Game</title>
+</head>
+<body>
+    <nav class="nav-style">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">Quiz Game</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                {{#unless user}}
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Login</a></li>
+                {{/unless}}
+                {{#if user}}
+                 <li><a href="#">Logout</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Login</a></li>
+    </ul>
+    <main>
+
+        {{{body}}}
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Quiz Game</h5>
+                    <p class="grey-text text-lighten-4">
+                        Create a quiz. Take a quiz. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">Home</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+    <script>
+        $(document).ready(function () {
+            $(".sidenav").sidenav();
+        });
+    </script>
+</body>
+
+</html>
