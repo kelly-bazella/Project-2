@@ -12,7 +12,8 @@ module.exports = function(app) {
     db.quizzes
       .create({
         category: req.body.category,
-        title: req.body.title
+        title: req.body.title,
+        numberOfQuestions: req.body.numberOfQuestions
       })
       .then(function(dbQuizzes) {
         res.json(dbQuizzes);
