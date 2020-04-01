@@ -29,5 +29,30 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "views/members.handlebars../"));
   });
-};
 
+  // Each of the below routes just handles the HTML page that the user gets sent to.
+
+  app.get("/takequiz", function(req, res) {
+    res.render("takequiz");
+  });
+
+  app.get("/homepage", function(req, res) {
+    res.render("userhomepage");
+  });
+
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+  });
+
+  app.get("/viewscores", function(req, res) {
+    res.render("viewscores");
+  });
+
+  app.get("/createquiz", function(req, res) {
+    res.render("createquiz");
+  });
+
+  app.get("/takequiz", function(req, res) {
+    res.render("takeequiz");
+  });
+};
