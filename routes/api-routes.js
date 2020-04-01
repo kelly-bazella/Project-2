@@ -62,7 +62,8 @@ module.exports = function(app) {
     db.questions
       .create({
         question: req.body.question,
-        answer: req.body.answer
+        answer: req.body.answer,
+        quizId: req.body.quizId
       })
       .then(function(dbQuestions) {
         res.json(dbQuestions);
