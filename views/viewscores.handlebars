@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 center-aligned">
+            {{#unless user}}
+            <h2>Your Score</h2>
+            {{/unless}}
+            {{#if user}}
+            <h2>Your Scores</h2>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <ul class="score_list collection">
+            {{#unless user}}
+            <li class="collection-item">Score: </li>
+            {{/unless}}
+            {{#if user}}
+            {{#each user.score}}
+            <li class="collection-item">{{this.score}}</li>
+            {{/each}}
+            {{/if}}
+        </ul>
+    </div>
+</div>
