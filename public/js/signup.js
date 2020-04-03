@@ -31,7 +31,7 @@ $(document).ready(function() {
     })
       // eslint-disable-next-line no-unused-vars
       .then(function(data) {
-        window.location.replace("/userhomepage");
+        window.location.replace("/homepage");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       // eslint-disable-next-line no-use-before-define

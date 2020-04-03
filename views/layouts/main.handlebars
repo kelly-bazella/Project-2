@@ -12,14 +12,16 @@
 <body>
     <nav class="nav-style">
         <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo">Quiz Game</a>
+
+            <a href="/" class="brand-logo">Quiz Game</a>
+
             <a href="#" class="sidenav-trigger" data-target="mobile-nav">
                 <i class="material-icons">menu</i>
             </a>
             <ul class="right hide-on-med-and-down">
                 {{#unless user}}
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="https://gold-team-quiz.herokuapp.com/signup">Sign Up</a></li>
+                <li><a href="https://gold-team-quiz.herokuapp.com/login">Login</a></li>
                 {{/unless}}
                 {{#if user}}
                  <li><a href="#">Logout</a></li>
@@ -29,8 +31,8 @@
     </nav>
 
     <ul class="sidenav" id="mobile-nav">
-        <li><a href="#">Sign Up</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="https://gold-team-quiz.herokuapp.com/signup">Sign Up</a></li>
+        <li><a href="https://gold-team-quiz.herokuapp.com/login">Login</a></li>
     </ul>
     <main>
 
@@ -51,12 +53,15 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2020 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">Home</a>
+                <a class="grey-text text-lighten-4 right" href="/">Home</a>
             </div>
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/signup.js"></script>
+    <script src="/js/login.js"></script>
+    
   
     <script>
         $(document).ready(function () {
