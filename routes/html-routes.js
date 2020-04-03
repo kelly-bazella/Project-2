@@ -41,9 +41,9 @@ module.exports = function(app) {
     res.render("userhomepage");
   });
 
-  // app.get("/signup", function(req, res) {
-  //   res.render("signup");
-  // });
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+  });
 
   app.get("/viewscores", function(req, res) {
     res.render("viewscores");
@@ -55,5 +55,9 @@ module.exports = function(app) {
 
   app.get("/takequiz", function(req, res) {
     res.render("takeequiz");
+  });
+
+  app.get("/currentquiz", function(req, res){
+    res.render("currentquiz");
   });
 };

@@ -16,6 +16,5 @@ module.exports = function(sequelize, DATATYPES) {
       allowNull: false
     }
   });
-
   return Quizzes;
 };
