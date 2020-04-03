@@ -41,9 +41,9 @@ module.exports = function(app) {
     res.render("userhomepage");
   });
 
-  app.get("/signup", function(req, res) {
-    res.render("signup");
-  });
+  // app.get("/signup", function(req, res) {
+  //   res.render("signup");
+  // });
 
   app.get("/viewscores", function(req, res) {
     res.render("viewscores");
