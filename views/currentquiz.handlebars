@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 center-aligned">
+            <h2>Test Your Knowledge!</h2>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="row">
+        <form class="column s9">
+            <div class="row">
+                <div class="input-field col s9">
+                    <h3>{{Quizzes.title}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <ul>
+                    {{#each Questions}}
+                    <li>
+                        <div class="row">
+                            <p>{{this.question}}</p>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s9">
+                                <input placeholder="Type Your Answer" type="text" class="validate" />
+                                <label for="current_answer">Answer</label>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </form>
+        <div class="col s3 push-s9">
+            <a href="#" class="waves-effect waves-light btn-large submit-quiz">Submit Quiz</a>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+</div>
+<script src="js/currentquiz.js"></script>
