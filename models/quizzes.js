@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DATATYPES) {
-  var Quizzes = sequelize.define('quizzes', {
+  var Quizzes = sequelize.define("Quizzes", {
     category: {
       type: DATATYPES.STRING,
       allowNull: false,
@@ -17,5 +17,10 @@ module.exports = function(sequelize, DATATYPES) {
     }
   });
 
+  Quizzes.associate = function(models) {
+    Quizzes.hasMany(models.Questions, {
+      onDelete: "cascade"
+    });
+  };
   return Quizzes;
 };

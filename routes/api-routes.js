@@ -3,13 +3,13 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   app.get("/api/quizzes", function(req, res) {
-    db.quizzes.findAll({}).then(function(dbQuizzes) {
+    db.Quizzes.findAll({}).then(function(dbQuizzes) {
       res.json(dbQuizzes);
     });
   });
 
   app.post("/api/quizzes", function(req, res) {
-    db.quizzes
+    db.Quizzes
       .create({
         category: req.body.category,
         title: req.body.title,
@@ -24,7 +24,7 @@ module.exports = function(app) {
   });
 
   app.delete("/api/quizzes/:id", function(req, res) {
-    db.quizzes
+    db.Quizzes
       .destroy({
         where: {
           id: req.params.id
@@ -36,7 +36,7 @@ module.exports = function(app) {
   });
 
   app.put("/api/quizzes/:id", function(req, res) {
-    db.quizzes
+    db.Quizzes
       .update(
         {
           category: req.body.category,
@@ -149,4 +149,12 @@ module.exports = function(app) {
       });
     }
   });
+  app.get("/api/currentquiz", function(req, res) {
+    db.Quizzes.findOne({
+      include:[db.Questions]
+    }).then(function(quizzes) {
+      res.json(quizzes);
+    });
+  });
+
 };
