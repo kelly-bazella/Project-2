@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DATATYPES) {
-  var Questions = sequelize.define("questions", {
+  var Questions = sequelize.define("Questions", {
     question: {
       type: DATATYPES.STRING,
       allowNull: false,
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DATATYPES) {
     }
   });
   Questions.associate = function(models) {
-    Questions.belongsTo(models.quizzes, {
+    Questions.belongsTo(models.Quizzes, {
       foreignKey: {
         allowNull: false
       }
