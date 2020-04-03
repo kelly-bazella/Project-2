@@ -149,4 +149,20 @@ module.exports = function(app) {
       });
     }
   });
+  app.get("/api/currentquiz", function(req, res) {
+    db.quizzes.findOne({}).then(function(quizzes){
+      db.questions.findAll({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbCurrent){
+        console.log(dbCurrent);
+        res.json(dbCurrent);
+      });
+      res.json(quizzes);
+    });
+    // db.quizzes.findOne({ order: "random()" }).then(function(quizzes) {
+    //   res.render("currentquiz", quizzes);
+    // });
+  });
 };

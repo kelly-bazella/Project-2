@@ -1,5 +1,6 @@
 $().ready(function() {
   $(".take-random-quiz").on("click", function() {
+
     //take user to random quiz to complete
   });
 
