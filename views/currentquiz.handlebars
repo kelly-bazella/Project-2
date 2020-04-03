@@ -10,15 +10,15 @@
         <form class="column s9">
             <div class="row">
                 <div class="input-field col s9">
-                    <h3 id = "quiz-title">{{Quizzes.title}}</h3>
+                    <h3 id ="quiz-title">{{Quizzes.dataValues.title}}</h3>
                 </div>
             </div>
             <div class="row">
                 <ul>
-                    {{#each Questions}}
+                    {{#each Quizzes.Questions}}
                     <li>
                         <div class="row">
-                            <p>{{this.question}}</p>
+                            <p>{{dataValues.question}}</p>
                         </div>
                         <div class="row">
                             <div class="input-field col s9">
