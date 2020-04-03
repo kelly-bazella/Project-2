@@ -53,7 +53,7 @@ module.exports = function(app) {
     res.render("createquiz");
   });
 
-  app.get("/takequiz", function(req, res) {
-    res.render("takeequiz");
-  });
+  // app.get("/takequiz", function(req, res) {
+  //   res.render("takeequiz");
+  // });
 };
