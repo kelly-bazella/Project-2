@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s9">
-                    <input placeholder="Answer to the first question" type="text" class="validate" />
+                    <input placeholder="Answer to the first question" type="text" class="validate" id = "first_answer" />
                     <label for="first_answer">First Answer</label>
                 </div>
             </div>
@@ -31,12 +31,12 @@
                 <div class="input-field col s9">
                     <input placeholder="Type your second question here" id="second_question" type="text"
                         class="validate" />
-                    <label for="first_name">Second Question</label>
+                    <label for="first_name" >Second Question</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s9">
-                    <input placeholder="Answer to the second question" type="text" class="validate" />
+                    <input placeholder="Answer to the second question" type="text" class="validate" id = "second_answer" />
                     <label for="second_answer">Second Answer</label>
                 </div>
             </div>
@@ -49,19 +49,22 @@
             </div>
             <div class="row">
                 <div class="input-field col s9">
-                    <input placeholder="Answer to the third question" type="text" class="validate" />
+                    <input placeholder="Answer to the third question" type="text" class="validate" id ="third_answer"/>
                     <label for="third_answer">Third Answer</label>
                 </div>
             </div>
         </form>
-        <a class="dropdown-trigger btn" href="#" data-target="category-dropdown">Quiz Category</a>
-        <ul id="category-dropdown" class="dropdown-content">
-            <li><a id="Geography" href="#!">Geography</a></li>
-            <li><a id="Music" href="#!">Music</a></li>
-            <li><a id="Movies" href="#!">Movies</a></li>
-            <li><a id="Sports" href="#!">Sports</a></li>
-        </ul>
-        <div class="col s3 push-s9">
+        <div class="input-field col s6">
+            <select id ="category-dropdown">
+                <option value="" disabled selected>Choose your Category</option>
+                <option value="Geography">Geography</option>
+                <option value="Music">Music</option>
+                <option value="Movies">Movies</option>
+                <option value="Sports">Sports</option>
+            </select>
+            <label>Quiz Category</label>
+        </div>
+        <div class="col s3">
             <a href="./takequiz" class="waves-effect waves-light btn-large create-quiz">Create Quiz</a>
         </div>
     </div>
