@@ -36,7 +36,12 @@ module.exports = function(app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   app.get("/takequiz", function(req, res) {
-    res.render("takequiz");
+    db.Quizzes.findAll({}).then(function(quizzes){
+      var hbsQuizzes = {
+        Quizzes: quizzes
+      };
+      res.render("takequiz", hbsQuizzes);
+    });
   });
 
   app.get("/homepage", function(req, res) {
@@ -55,10 +60,6 @@ module.exports = function(app) {
     res.render("createquiz");
   });
 
-  app.get("/takequiz", function(req, res) {
-    res.render("takeequiz");
-  });
-
   app.get("/currentquiz", function(req, res) {
     db.Quizzes.findOne({
       include:[db.Questions]
@@ -67,7 +68,7 @@ module.exports = function(app) {
         Quizzes: quizzes
       };
       console.log(hbsQuizzes);
-      res.render("currentquiz", hbsQuizzes);
+      res.render("currentquiz",hbsQuizzes);
 
     });
   });

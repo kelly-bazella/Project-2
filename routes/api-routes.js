@@ -157,4 +157,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/takequiz", function(req,res){
+    db.Quizzes.findAll({}).then(function(allQuizzes){
+      res.json(allQuizzes);
+    });
+  });
+
 };
