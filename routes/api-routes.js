@@ -9,12 +9,11 @@ module.exports = function(app) {
   });
 
   app.post("/api/quizzes", function(req, res) {
-    db.Quizzes
-      .create({
-        category: req.body.category,
-        title: req.body.title,
-        numberOfQuestions: req.body.numberOfQuestions
-      })
+    db.Quizzes.create({
+      category: req.body.category,
+      title: req.body.title,
+      numberOfQuestions: req.body.numberOfQuestions
+    })
       .then(function(dbQuizzes) {
         res.json(dbQuizzes);
       })
@@ -23,34 +22,42 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/createquiz", function(req, res) {
+    console.log(req.body);
+
+    db.Quizzes.create({
+      title: req.body.title,
+      category: req.body.category,
+      numberOfQuestions: 3
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+
   app.delete("/api/quizzes/:id", function(req, res) {
-    db.Quizzes
-      .destroy({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function(dbQuizzes) {
-        res.json(dbQuizzes);
-      });
+    db.Quizzes.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbQuizzes) {
+      res.json(dbQuizzes);
+    });
   });
 
   app.put("/api/quizzes/:id", function(req, res) {
-    db.Quizzes
-      .update(
-        {
-          category: req.body.category,
-          title: req.body.title
-        },
-        {
-          where: {
-            id: req.body.id
-          }
+    db.Quizzes.update(
+      {
+        category: req.body.category,
+        title: req.body.title
+      },
+      {
+        where: {
+          id: req.body.id
         }
-      )
-      .then(function(dbQuizzes) {
-        res.json(dbQuizzes);
-      });
+      }
+    ).then(function(dbQuizzes) {
+      res.json(dbQuizzes);
+    });
   });
   app.get("/api/questions", function(req, res) {
     db.questions.findAll({}).then(function(dbQuestions) {
@@ -151,16 +158,18 @@ module.exports = function(app) {
   });
   app.get("/api/currentquiz", function(req, res) {
     db.Quizzes.findOne({
-      include:[db.Questions]
+      where: {
+        title: req.query.title
+      },
+      include: [db.Questions]
     }).then(function(quizzes) {
       res.json(quizzes);
     });
   });
 
-  app.get("/api/takequiz", function(req,res){
-    db.Quizzes.findAll({}).then(function(allQuizzes){
+  app.get("/api/takequiz", function(req, res) {
+    db.Quizzes.findAll({}).then(function(allQuizzes) {
       res.json(allQuizzes);
     });
   });
-
 };

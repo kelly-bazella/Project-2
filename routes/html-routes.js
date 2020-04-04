@@ -2,13 +2,12 @@
 var path = require("path");
 var db = require("../models");
 
-
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    res.render("index", { user: true });
+    res.render("index");
   });
 
   app.get("/homepage", function(req, res) {
@@ -36,7 +35,7 @@ module.exports = function(app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   app.get("/takequiz", function(req, res) {
-    db.Quizzes.findAll({}).then(function(quizzes){
+    db.Quizzes.findAll({}).then(function(quizzes) {
       var hbsQuizzes = {
         Quizzes: quizzes
       };
@@ -62,14 +61,13 @@ module.exports = function(app) {
 
   app.get("/currentquiz", function(req, res) {
     db.Quizzes.findOne({
-      include:[db.Questions]
+      include: [db.Questions]
     }).then(function(quizzes) {
       var hbsQuizzes = {
         Quizzes: quizzes
       };
       console.log(hbsQuizzes);
-      res.render("currentquiz",hbsQuizzes);
-
+      res.render("currentquiz", hbsQuizzes);
     });
   });
 };
