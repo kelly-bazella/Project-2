@@ -1,4 +1,4 @@
-var db = require("../../models");
+var db = require("../models");
 var score = 0;
 var currentQuestion = 0;
 

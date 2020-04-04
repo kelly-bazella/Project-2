@@ -10,14 +10,6 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  app.get("/homepage", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/homepage");
-    }
-    res.render(path.join(__dirname, "../views/userhomepage.handlebars"));
-  });
-
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -44,9 +36,9 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/homepage", function(req, res) {
-    res.render("userhomepage");
-  });
+  // app.get("/homepage", function(req, res) {
+  //   res.render("userhomepage");
+  // });
 
   app.get("/signup", function(req, res) {
     res.render("signup");
@@ -74,15 +66,6 @@ module.exports = function(app) {
       res.render("currentquiz", hbsQuizzes);
     });
   });
-  // app.get("/currentquiz/:quizId", function(req, res){
-  //   db.Quizzes.findOne({
-  //     where: {
-  //       quizId: req.params.quizId
-  //     }
-  //   }).then(function(dbQuizzes){
-  //     res.render("takequiz", dbQuizzes);
-  //   });
-  // });
 };
 
 
