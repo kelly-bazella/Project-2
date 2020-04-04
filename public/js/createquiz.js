@@ -30,6 +30,7 @@ $(document).ready(function() {
     $.post("/api/createquiz", newQuiz, function(cb) {
       console.log(newQuiz);
       console.log(cb);
+      window.location.replace("/takequiz");
     });
   });
 });
