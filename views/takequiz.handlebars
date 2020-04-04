@@ -4,7 +4,6 @@
       <h2>Take a Quiz</h2>
     </div>
   </div>
-  <h2>Quiz of the Day!</h2>
     <div class="divider"></div>
   <div class="row">
     <div class="col s9">
@@ -13,9 +12,6 @@
         <p>{{User.email}}</p>
       </div>
     </div>
-    <div class="col s3">
-      <a href="#" class="waves-effect waves-light btn-large take-random-quiz" id="{{this.id}}">Take Quiz</a>
-    </div>
   </div>
   <div class="divider"></div>
    {{#each Quizzes}}
@@ -23,12 +19,11 @@
   <div class="row">
     <div class="col s9">
       <div class="section">
-        <h5>{{Quizzes.title}}</h5>
-        <p>{{User.email}}</p>
+        <h5>{{dataValues.title}}</h5>
       </div>
     </div>
     <div class="col s3">
-      <a href="./currentquiz" class="waves-effect waves-light btn-large take-quiz" id="{{this.id}}">Take Quiz</a>
+      <a href="./currentquiz" class="waves-effect waves-light btn-large take-quiz">Take Quiz</a>
     </div>
   </div>
   <div class="divider"></div>
