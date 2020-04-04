@@ -19,7 +19,7 @@ OR I can send my quiz to a friend so they can take it
 ```
 ## Screenshots
 
-![homepage](/images/homepage.PNG)
+![alt_text](./images/homepage.PNG)
 
 ### Links
 [Link to deployed Heroku App](https://gold-team-quiz.herokuapp.com/)
