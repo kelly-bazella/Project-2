@@ -39,6 +39,7 @@ module.exports = function(app) {
       var hbsQuizzes = {
         Quizzes: quizzes
       };
+      console.log(hbsQuizzes);
       res.render("takequiz", hbsQuizzes);
     });
   });
@@ -59,8 +60,11 @@ module.exports = function(app) {
     res.render("createquiz");
   });
 
-  app.get("/currentquiz", function(req, res) {
+  app.get("/currentquiz/:id", function(req, res) {
     db.Quizzes.findOne({
+      where: {
+        id: req.params.id
+      },
       include: [db.Questions]
     }).then(function(quizzes) {
       var hbsQuizzes = {
@@ -70,4 +74,15 @@ module.exports = function(app) {
       res.render("currentquiz", hbsQuizzes);
     });
   });
+  // app.get("/currentquiz/:quizId", function(req, res){
+  //   db.Quizzes.findOne({
+  //     where: {
+  //       quizId: req.params.quizId
+  //     }
+  //   }).then(function(dbQuizzes){
+  //     res.render("takequiz", dbQuizzes);
+  //   });
+  // });
 };
+
+

@@ -4,7 +4,8 @@ $(document).ready(function() {
   });
 
   $(".take-quiz").on("click", function() {
-    $.get("api/quizzes", function(data) {
+    $.get("/currentquiz/:id", function(data) {
+      console.log(data);
       var responseArray = [];
       for (var i = 0; i < data.length; i++) {
         responseArray.push(data);

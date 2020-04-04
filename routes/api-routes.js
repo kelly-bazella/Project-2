@@ -24,8 +24,11 @@ module.exports = function(app) {
 
   app.post("/api/createquiz", function(req, res) {
     console.log(req.body);
-
     db.Quizzes.create({
+      questions:[{
+        question: req.body.question,
+        answer: req.body.answer
+      }],
       title: req.body.title,
       category: req.body.category,
       numberOfQuestions: 3
