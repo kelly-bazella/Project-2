@@ -1,12 +1,17 @@
-$().ready(function() {
+$(document).ready(function() {
   $(".take-random-quiz").on("click", function() {
-
     //take user to random quiz to complete
   });
 
-  $(".take-quiz").on("click", function(event) {
-    //take the index number, find it in database and present user with quiz
-    event.preventDefault();
-    
+  $(".take-quiz").on("click", function() {
+    $.get("api/quizzes", function(data) {
+      var responseArray = [];
+      for (var i = 0; i < data.length; i++) {
+        responseArray.push(data);
+        console.log(responseArray[i]);
+      }
+    });
   });
+
+  //take the index number, find it in database and present user with quiz
 });
