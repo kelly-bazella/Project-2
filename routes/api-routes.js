@@ -23,8 +23,6 @@ module.exports = function(app) {
   });
 
   app.post("/api/createquiz", function(req, res) {
-    console.log("I was here");
-    console.log(req.body);
     db.Quizzes.create(
       {
         title: req.body.title,
@@ -33,7 +31,7 @@ module.exports = function(app) {
         Questions: req.body.questions
       },
       {
-        include: [Questions]
+        include: [db.Questions]
       }
     ).then(function(results) {
       res.json(results);
