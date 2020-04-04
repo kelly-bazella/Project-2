@@ -23,16 +23,19 @@ module.exports = function(app) {
   });
 
   app.post("/api/createquiz", function(req, res) {
+    console.log("I was here");
     console.log(req.body);
-    db.Quizzes.create({
-      questions:[{
-        question: req.body.question,
-        answer: req.body.answer
-      }],
-      title: req.body.title,
-      category: req.body.category,
-      numberOfQuestions: 3
-    }).then(function(results) {
+    db.Quizzes.create(
+      {
+        title: req.body.title,
+        category: req.body.category,
+        numberOfQuestions: 3,
+        Questions: req.body.questions
+      },
+      {
+        include: [Questions]
+      }
+    ).then(function(results) {
       res.json(results);
     });
   });
@@ -63,7 +66,7 @@ module.exports = function(app) {
     });
   });
   app.get("/api/questions", function(req, res) {
-    db.questions.findAll({}).then(function(dbQuestions) {
+    db.Questions.findAll({}).then(function(dbQuestions) {
       res.json(dbQuestions);
     });
   });
@@ -115,7 +118,10 @@ module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login/:id", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login/:id", passport.authenticate("local"), function(
+    req,
+    res
+  ) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
